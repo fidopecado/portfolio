@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  /* Adapted from e-ink-colorscheme/e-ink.subl (MIT). */
+  --paper: #f3f2ec;
+  --paper-bright: #faf9f4;
+  --ink-100: #cccccc;
+  --ink-200: #b8b8b8;
+  --ink-300: #9a9a9a;
+  --ink-400: #868686;
+  --ink-500: #727272;
+  --ink-600: #5e5e5e;
+  --ink-700: #4a4a4a;
+  --ink-800: #333333;
+
+  --background: var(--paper);
+  --foreground: var(--ink-800);
+  --card: var(--paper-bright);
+  --card-foreground: var(--ink-800);
+  --primary: var(--ink-800);
+  --primary-foreground: var(--paper-bright);
+  --secondary: #e8e7e1;
+  --secondary-foreground: var(--ink-800);
+  --muted: #e7e6df;
+  --muted-foreground: var(--ink-600);
+  --border: var(--ink-200);
+  --ring: var(--ink-700);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-ink-100: var(--ink-100);
+  --color-ink-200: var(--ink-200);
+  --color-ink-300: var(--ink-300);
+  --color-ink-400: var(--ink-400);
+  --color-ink-500: var(--ink-500);
+  --color-ink-600: var(--ink-600);
+  --color-ink-700: var(--ink-700);
+  --color-ink-800: var(--ink-800);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--ink-800);
+  color: var(--paper-bright);
+}
+
+.paper-noise {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgb(51 51 51 / 0.035) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 60%, rgb(51 51 51 / 0.025) 0 1px, transparent 1px);
+  background-position: 0 0, 7px 7px;
+  background-size: 13px 13px, 17px 17px;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgb(94 94 94 / 0.22) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
