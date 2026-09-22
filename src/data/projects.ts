@@ -1,4 +1,18 @@
-export const projects = [
+export interface Project {
+  number: string;
+  year: string;
+  title: string;
+  type: string;
+  description: string;
+  details: string[];
+  stack: string[];
+  featured: boolean;
+  liveUrl?: string;
+  caseStudyUrl?: string;
+  githubUrl?: string;
+}
+
+export const projects: Project[] = [
   {
     number: "01",
     year: "2025",
@@ -14,6 +28,7 @@ export const projects = [
     ],
     stack: ["MongoDB", "Express", "React.js", "Node.js", "Tailwind CSS"],
     featured: true,
+    liveUrl: "/showcase/ecommerce",
   },
   {
     number: "02",
@@ -29,6 +44,7 @@ export const projects = [
     ],
     stack: ["Python", "IBM Granite", "Ollama", "GPT", "NLP", "Prompt Engineering"],
     featured: false,
+    caseStudyUrl: "/projects/gambling-classification",
   },
   {
     number: "03",
@@ -44,6 +60,8 @@ export const projects = [
     ],
     stack: ["Python", "HuggingFace", "Transformers", "Streamlit", "NLP"],
     featured: false,
+    liveUrl: "/showcase/sentiment-analysis",
+    githubUrl: "https://github.com/FirdausRavi/Indonesian-Tiktok-Comments-Sentiment-Analysis",
   },
   {
     number: "04",
@@ -73,6 +91,7 @@ export const projects = [
     ],
     stack: ["Bootstrap", "PHP", "SQL", "HTML/CSS"],
     featured: false,
+    liveUrl: "/showcase/legit/",
   },
   {
     number: "06",

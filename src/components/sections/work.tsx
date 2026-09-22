@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChevronRightIcon } from "@/components/icons";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
@@ -67,12 +68,48 @@ export function Work() {
                 </ul>
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-2 pt-4 border-t border-border/60">
-                {project.stack.map((tool) => (
-                  <Badge key={tool} variant="outline" className="bg-background px-2.5 py-1 text-[0.7rem] font-normal">
-                    {tool}
-                  </Badge>
-                ))}
+              <div className="space-y-4 pt-4 border-t border-border/60">
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((tool) => (
+                    <Badge key={tool} variant="outline" className="bg-background px-2.5 py-1 text-[0.7rem] font-normal">
+                      {tool}
+                    </Badge>
+                  ))}
+                </div>
+
+                {(project.liveUrl || project.caseStudyUrl || project.githubUrl) && (
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    {project.liveUrl && (
+                      <Link
+                        href={project.liveUrl}
+                        className="inline-flex items-center gap-1.5 rounded bg-foreground px-3 py-1.5 font-mono text-xs font-medium text-background transition-opacity hover:opacity-90"
+                      >
+                        <span>View Interactive Demo</span>
+                        <ChevronRightIcon className="size-3" />
+                      </Link>
+                    )}
+                    {project.caseStudyUrl && (
+                      <Link
+                        href={project.caseStudyUrl}
+                        className="inline-flex items-center gap-1.5 rounded border border-border bg-background px-3 py-1.5 font-mono text-xs font-medium text-foreground transition-colors hover:bg-muted"
+                      >
+                        <span>Read Case Study</span>
+                        <ChevronRightIcon className="size-3" />
+                      </Link>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded border border-border bg-background px-3 py-1.5 font-mono text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                      >
+                        <span>View Repository</span>
+                        <span className="text-[10px]">↗</span>
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -81,3 +118,4 @@ export function Work() {
     </section>
   );
 }
+
