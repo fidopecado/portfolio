@@ -1,4 +1,4 @@
-import { Terminal } from "lucide-react";
+import { TerminalIcon } from "@/components/icons";
 import { SectionHeading } from "@/components/section-heading";
 
 export function About() {
@@ -9,34 +9,29 @@ export function About() {
       aria-labelledby="about-title"
     >
       <SectionHeading
+        id="about"
         index="01"
         eyebrow="About"
-        title="Technical by instinct. Curious by practice."
-        description="My work sits at the intersection of reliable day-to-day operations and thoughtful building. I enjoy finding the root cause, making the fix understandable, and leaving systems in a better state than I found them."
+        title="Calm under a fault ticket. Curious on a blank canvas."
+        description="I work where steady day-to-day operations meet hands-on building. Finding the root cause is the easy part — the real work is making the fix clear enough for someone else to run with."
       />
-      <div className="grid gap-10 md:grid-cols-2 md:pl-48">
+      <div className="grid gap-10 md:ml-48 md:grid-cols-2">
         <div className="space-y-5 leading-7 text-muted-foreground">
           <p>
-            As an on-site IT Field Support engineer in a manufacturing
-            environment, I work close to the people and infrastructure that keep
-            a plant running. That means practical troubleshooting, calm incident
-            management, and ownership from first report through resolution.
+            As an on-site IT Field Support engineer at PT. Wavin Manufacturing Indonesia, I work directly alongside plant personnel and technical infrastructure to maintain uninterrupted production. My role centers on practical troubleshooting, ServiceNow incident resolution under strict SLAs, and owning system lifecycles from diagnosis to lasting stability.
           </p>
           <p>
-            My Informatics background adds another layer: building web products,
-            exploring machine learning, and turning messy datasets into useful
-            signals. I bring the same structured thinking to both a network issue
-            and a classification experiment.
+            My Informatics degree (S.Kom) from Diponegoro University provides a strong engineering foundation: building scalable full-stack web applications, evaluating generative AI models through RLHF and NLP, and applying Computer Vision for pattern recognition. Whether diagnosing network equipment or optimizing classification pipelines, I approach every engineering problem systematically — analyzing root causes thoroughly before applying precise solutions.
           </p>
         </div>
-        <div className="dot-grid flex min-h-52 flex-col justify-between border border-border p-6">
-          <Terminal className="size-5" />
+        <div className="dot-grid flex min-h-52 flex-col justify-between border border-border p-6 sm:p-8">
+          <TerminalIcon className="size-5 text-foreground" />
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">
-              Working principle
+              Core Engineering Principle
             </p>
-            <p className="mt-3 max-w-xs text-xl font-medium leading-7">
-              Make the complex useful, then make it dependable.
+            <p className="mt-3 max-w-xs text-xl font-semibold leading-7 tracking-tight">
+              Understand the system thoroughly, solve the root cause, and build for reliability.
             </p>
           </div>
         </div>
@@ -44,3 +39,4 @@ export function About() {
     </section>
   );
 }
+

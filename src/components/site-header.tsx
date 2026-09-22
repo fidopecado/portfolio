@@ -1,26 +1,33 @@
 "use client";
 
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { MenuIcon, XIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-
-const navigation = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Work", href: "#work" },
-  { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
-];
+import { navigation } from "@/data/sections";
+import { useActiveSection } from "@/hooks/use-active-section";
+import { contact } from "@/data/profile";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const active = useActiveSection();
+
+  // A single passive listener is cheaper than watching every section, and it
+  // keeps the highlight in sync with anchor jumps too.
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         <a
           href="#top"
-          className="group flex items-center gap-3 outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="group flex items-center gap-3 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label="Firdaus Ravi, back to top"
         >
           <span className="grid size-8 place-items-center border border-foreground bg-foreground font-mono text-xs font-semibold text-background transition-colors group-hover:bg-background group-hover:text-foreground">
@@ -36,13 +43,16 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              aria-current={active === item.id ? "true" : undefined}
+              className="font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring aria-[current]:text-foreground"
             >
               {item.label}
             </a>
           ))}
           <Button asChild size="sm">
-            <a href="mailto:firdausravi33@gmail.com">Let&apos;s talk</a>
+            <a href={`mailto:${contact.email}`} aria-label="Email me to get in touch">
+              Let&apos;s talk
+            </a>
           </Button>
         </nav>
 
@@ -56,7 +66,7 @@ export function SiteHeader() {
           aria-label={open ? "Close navigation" : "Open navigation"}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X /> : <Menu />}
+          {open ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
         </Button>
       </div>
 
@@ -71,15 +81,18 @@ export function SiteHeader() {
               <a
                 key={item.href}
                 href={item.href}
-                className="flex items-center justify-between border-b border-border py-3 font-mono text-sm uppercase tracking-wider"
                 onClick={() => setOpen(false)}
+                aria-current={active === item.id ? "true" : undefined}
+                className="flex items-center justify-between border-b border-border py-3 font-mono text-sm uppercase tracking-wider text-muted-foreground aria-[current]:text-foreground"
               >
                 {item.label}
-                <span className="text-muted-foreground">0{index + 1}</span>
+                <span className="font-mono text-xs text-ink-400">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </a>
             ))}
             <Button asChild className="mt-4 w-full">
-              <a href="mailto:firdausravi33@gmail.com">Let&apos;s talk</a>
+              <a href={`mailto:${contact.email}`}>Let&apos;s talk</a>
             </Button>
           </div>
         </nav>
@@ -87,3 +100,4 @@ export function SiteHeader() {
     </header>
   );
 }
+

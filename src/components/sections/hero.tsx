@@ -1,12 +1,12 @@
-import {
-  ArrowDownRight,
-  CircleDot,
-  Download,
-  Mail,
-  MapPin,
-  Phone,
-} from "lucide-react";
+import { ArrowDownRightIcon, CircleDotIcon, DownloadIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import { contact } from "@/data/profile";
+
+const metrics = [
+  { value: "100+", label: "Plant personnel & office users supported" },
+  { value: "3.69", label: "/ 4.00 Cumulative Informatics GPA (S.Kom)" },
+  { value: "08", label: "Oracle & HackerRank credentials earned" },
+];
 
 export function Hero() {
   return (
@@ -17,10 +17,10 @@ export function Hero() {
       >
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end">
           <div>
-            <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              <CircleDot className="size-3" />
-              Available for technical conversations
-            </div>
+            <p className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+              <CircleDotIcon className="size-3 text-foreground" />
+              Available for technical roles & collaboration
+            </p>
             <h1
               id="hero-title"
               className="max-w-5xl text-balance text-[clamp(3.5rem,10vw,9.5rem)] font-semibold leading-[0.88] tracking-[-0.08em]"
@@ -30,87 +30,73 @@ export function Hero() {
               Ravi<span className="text-ink-400">.</span>
             </h1>
             <div className="mt-8 flex max-w-2xl flex-col gap-6 sm:flex-row sm:items-start">
-              <p className="font-mono text-xs uppercase leading-6 tracking-[0.13em] text-muted-foreground sm:w-44 sm:shrink-0">
-                IT field support
+              <p className="gap-5 font-mono text-xs uppercase leading-6 tracking-[0.13em] text-muted-foreground sm:w-44 sm:shrink-0">
+                IT Field Support
                 <br />
-                Informatics graduate
+                Bachelor of Informatics
               </p>
               <p className="max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl">
-                I keep people, systems, and operations moving — from
-                plant-floor infrastructure and endpoint support to web
-                applications and applied AI.
+                Ensuring operational continuity and building modern software — from plant infrastructure and endpoint administration to full-stack web products and applied AI research.
               </p>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Button asChild size="lg">
                 <a href="#work">
-                  Explore selected work <ArrowDownRight />
+                  Explore selected work <ArrowDownRightIcon />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="/Firdaus-Ravi-Faizzani-CV.pdf" download>
-                  Download CV <Download />
+                <a href={contact.resume} download>
+                  Download CV <DownloadIcon />
                 </a>
               </Button>
             </div>
           </div>
 
-          <aside
-            className="border-l border-border pl-5 lg:mb-2"
-            aria-label="Contact details"
-          >
+          <aside className="border-l border-border pl-6 lg:mb-2" aria-label="Contact details">
             <p className="mb-6 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
-              Contact / 00
+              Contact Overview
             </p>
-            <div className="grid gap-4 text-sm">
-              <a
-                className="flex items-start gap-3 hover:underline"
-                href="mailto:firdausravi33@gmail.com"
-              >
-                <Mail className="mt-0.5 size-4 text-muted-foreground" />
-                <span className="break-all">firdausravi33@gmail.com</span>
+            <address className="grid gap-4 text-sm not-italic">
+              <a className="flex items-start gap-3 transition-colors hover:text-foreground hover:underline" href={`mailto:${contact.email}`}>
+                <MailIcon className="mt-0.5 size-4 text-muted-foreground shrink-0" />
+                <span className="break-all">{contact.email}</span>
               </a>
-              <a
-                className="flex items-start gap-3 hover:underline"
-                href="tel:+6285786683002"
-              >
-                <Phone className="mt-0.5 size-4 text-muted-foreground" />
-                <span>+62 857 8668 3002</span>
+              <a className="flex items-start gap-3 transition-colors hover:text-foreground hover:underline" href={contact.phoneHref}>
+                <PhoneIcon className="mt-0.5 size-4 text-muted-foreground shrink-0" />
+                <span>{contact.phone}</span>
               </a>
-              <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 size-4 text-muted-foreground" />
+              <p className="flex items-start gap-3">
+                <MapPinIcon className="mt-0.5 size-4 text-muted-foreground shrink-0" />
                 <span>
-                  Semarang, Central Java
+                  {contact.location.city}, {contact.location.region}
                   <br />
-                  Indonesia
+                  {contact.location.country}
                 </span>
-              </div>
-            </div>
+              </p>
+            </address>
             <p className="mt-10 border-t border-border pt-4 font-mono text-[0.68rem] uppercase leading-5 tracking-[0.14em] text-muted-foreground">
-              Infrastructure · Applications · Intelligence
+              Infrastructure · Engineering · Intelligence
             </p>
           </aside>
         </div>
       </section>
 
-      <div className="border-y border-border bg-secondary/40">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-8 sm:grid-cols-3 sm:px-8">
-          <Metric value="100+" label="plant personnel supported" />
-          <Metric value="3" label="technical disciplines in practice" />
-          <Metric value="3.69" label="/ 4.00 Informatics GPA" />
+      <dl className="border-y border-border bg-secondary/40">
+        <div className="mx-auto flex max-w-7xl flex-col divide-y divide-border px-5 sm:flex-row sm:divide-x sm:divide-y-0 sm:px-8">
+          {metrics.map((metric) => (
+            <div key={metric.label} className="flex-1 py-8 sm:px-8 sm:first:pl-0 sm:last:pr-0">
+              <dt className="sr-only">{metric.label}</dt>
+              <dd>
+                <span className="block font-mono text-3xl font-semibold tracking-[-0.06em]">
+                  {metric.value}
+                </span>
+                <span className="mt-2 block text-sm text-muted-foreground">{metric.label}</span>
+              </dd>
+            </div>
+          ))}
         </div>
-      </div>
+      </dl>
     </>
-  );
-}
-
-function Metric({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <p className="font-mono text-3xl font-semibold tracking-[-0.06em]">
-        {value}
-      </p>
-      <p className="mt-2 text-sm text-muted-foreground">{label}</p>
-    </div>
   );
 }

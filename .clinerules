@@ -1,0 +1,60 @@
+# Project Context: Portfolio of Firdaus Ravi Faizzani
+
+## System Overview
+* **Type:** Personal Developer & Engineer Portfolio Website
+* **Tech Stack:** React / Next.js, Tailwind CSS, shadcn/ui
+* **Design Theme:** E-ink Github Color Scheme (Strict Monochrome, High Contrast, Clean Borders, Minimalist, No Flashy Gradients)
+
+---
+
+## Owner Profile & Bio (Source of Truth)
+* **Name:** Firdaus Ravi Faizzani
+* **Degree:** Bachelor of Computer Science (S.Kom), Diponegoro University (GPA: 3.69/4.00, 2021–2026)
+* **Current Roles:** 
+  * IT Field Support Engineer at PT Wavin Manufacturing Indonesia (April 2026 – Present)
+  * Freelance AI Data Annotator & RLHF/SFT Trainer at Outlier.ai (Feb 2025 – Jan 2026)
+* **Core Domains:** IT Infrastructure & Field Support, AI/LLM Evaluation & NLP, Computer Vision, Full-Stack Web Development
+
+---
+
+## Featured Projects Data Matrix
+Always use accurate information when rendering or editing project components:
+
+1. **E-commerce Website (2025):** Full-stack MERN stack (MongoDB, Express, React, Node.js) platform with CRUD, auth, payment gateway, and delivery tracking.
+2. **Promotional Gambling Comment Classification (2025):** LLM-based text classification (IBM Granite, GPT, Kimi, Ollama) on YouTube datasets with prompt engineering.
+3. **Indonesian Social Media Comment Sentiment Analysis (2026):** Sentiment analysis on TikTok comments using HuggingFace transformers, dynamic filtering, and Streamlit dashboards.
+4. **Batik Motif Classification (2025–2026):** Computer Vision image classification for Semarang & Banyumasan motifs using CNN Xception architecture.
+5. **GITLEGIT Company Profile (2024):** Mochi business landing page using Bootstrap & PHP.
+6. **Academic Management System (2023):** Student/lecturer data control system built with React.js, Node.js, and PHP.
+
+---
+
+## Core Technical Skills
+* **Programming Languages:** Python, JavaScript, TypeScript, SQL, C++, C#, Java, PHP
+* **Frameworks & Web:** React.js, Node.js, Express, Laravel, HTML/CSS, Tailwind CSS, Bootstrap, shadcn/ui
+* **AI & Data Science:** PyTorch, TensorFlow, HuggingFace Transformers, Computer Vision (CNN/Xception), NLP, Kaggle, LM Studio
+* **IT Operations & Tools:** Microsoft Intune, Azure AD, M365, ServiceNow, SAP S4/HANA (Basic), Git, Linux/Windows OS
+
+---
+
+## Design System Guidelines (E-Ink Github Palette)
+1. **Color Palette:**
+   * Primary Background: Pure white (`#ffffff`) or deep dark (`#0d1117` in dark mode)
+   * Text: High-contrast black/dark gray (`#1f2328` / `#f0f6fc`)
+   * Borders: Crisp crisp-border grayscale (`#d0d7de` / `#30363d`)
+   * Accents: Muted monochrome tones, monochrome badges, dithered or sharp outline borders.
+2. **Components Style:**
+   * Use `shadcn/ui` primitives exclusively.
+   * Minimal animations, micro-interactions with sharp transitions.
+   * Clean typography, mono-spaced fonts for technical details/tags.
+
+---
+
+## Agent Behavioral Rules for Cline
+1. **Preserve Existing Structure:** The project is already built. Focus on micro-refactoring, bug fixes, or content updates without rewriting entire components unnecessarily.
+2. **Token Efficiency:** Only modify the targeted file. Do not read or touch unrelated UI components unless requested.
+3. **Data Integrity:** Never extrapolate or fabricate work experience, education stats, or external URLs not provided in this file.
+
+## Tool Execution Rules (Mandatory)
+* **Always Execute:** Do NOT just display code blocks or write changes in text/thinking. You MUST invoke file editing tools (`write_to_file` or `replace_in_file`) to apply changes directly to the codebase.
+* **Direct Edit:** If a file needs to be modified, output the corresponding tool call immediately.

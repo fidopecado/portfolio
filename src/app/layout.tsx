@@ -5,33 +5,41 @@ import "./globals.css";
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Firdaus Ravi Faizzani — IT Field Support & Developer",
+  title: "Firdaus Ravi Faizzani — IT Field Support Engineer & Developer",
   description:
-    "Portfolio of Firdaus Ravi Faizzani, an IT Field Support engineer and Informatics graduate working across infrastructure, web development, and applied AI.",
+    "Portfolio of Firdaus Ravi Faizzani, an IT Field Support Engineer and Informatics Graduate specializing in infrastructure operations, full-stack web applications, and applied AI.",
   keywords: [
     "Firdaus Ravi Faizzani",
-    "IT Field Support",
+    "IT Field Support Engineer",
+    "PT Wavin Manufacturing Indonesia",
+    "Outlier.ai",
+    "Informatics Diponegoro University",
     "Web Developer",
+    "Applied AI",
     "Data Science",
     "Semarang",
   ],
+  authors: [{ name: "Firdaus Ravi Faizzani" }],
   openGraph: {
-    title: "Firdaus Ravi Faizzani",
-    description: "IT operations, web development, and applied AI.",
+    title: "Firdaus Ravi Faizzani — IT Field Support & Developer",
+    description: "IT infrastructure operations, web applications, and applied AI.",
     type: "website",
+    locale: "en_US",
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${manrope.variable} ${plexMono.variable}`}>
       <body>{children}</body>

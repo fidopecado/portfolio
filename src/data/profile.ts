@@ -1,3 +1,16 @@
+/** Contact details. Kept here so the hero, header, and contact block never drift. */
+export const contact = {
+  email: "firdausravi33@gmail.com",
+  phone: "+62 857 8668 3002",
+  phoneHref: "tel:+6285786683002",
+  location: {
+    city: "Semarang",
+    region: "Central Java",
+    country: "Indonesia",
+  },
+  resume: "/Firdaus-Ravi-Faizzani-CV.pdf",
+} as const;
+
 export const skillGroups = [
   {
     label: "Programming",
@@ -32,6 +45,13 @@ export const skillGroups = [
       "FortiGate",
     ],
   },
+];
+
+export const languages = [
+  { name: "Indonesian", level: "Native" },
+  { name: "Javanese", level: "Native" },
+  { name: "English", level: "C1 advanced" },
+  { name: "Spanish", level: "Beginner" },
 ];
 
 export const coursework = [
