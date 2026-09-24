@@ -5,7 +5,7 @@ import { contact } from "@/data/profile";
 const metrics = [
   { value: "100+", label: "Plant personnel & office users supported" },
   { value: "3.69", label: "/ 4.00 Cumulative Informatics GPA (S.Kom)" },
-  { value: "08", label: "Oracle & HackerRank credentials earned" },
+  { value: "1+", label: "Years of cumulative work experience*", exp:"*" },
 ];
 
 export function Hero() {
@@ -30,17 +30,14 @@ export function Hero() {
               Ravi<span className="text-ink-400">.</span>
             </h1>
             <div className="mt-8 flex max-w-2xl flex-col gap-6 sm:flex-row sm:items-start">
-              <p className="gap-5 font-mono text-xs uppercase leading-6 tracking-[0.13em] text-muted-foreground sm:w-44 sm:shrink-0">
+              <p className="gap-5 font-mono text-xs uppercase leading-6 tracking-[0.13em] text-muted-foreground sm:w-44 sm:shrink-0 lg:w-auto lg:px-1 ">
                 IT Field Support
                 <br />
                 Bachelor of Informatics
               </p>
-              <p className="max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl">
-                Ensuring operational continuity and building modern software — from plant infrastructure and endpoint administration to full-stack web products and applied AI research.
-              </p>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="lg:w-64">
                 <a href="#work">
                   Explore selected work <ArrowDownRightIcon />
                 </a>
