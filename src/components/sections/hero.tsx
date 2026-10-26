@@ -1,5 +1,6 @@
 import { ArrowDownRightIcon, CircleDotIcon, DownloadIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import { socialLinks } from "@/data/links";
 import { contact } from "@/data/profile";
 
 const metrics = [
@@ -48,6 +49,21 @@ export function Hero() {
                 </a>
               </Button>
             </div>
+            {socialLinks.length > 0 ? (
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-muted-foreground">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
+                  >
+                    {link.label} <span aria-hidden="true">↗</span>
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
 
           <aside className="border-l border-border pl-6 lg:mb-2" aria-label="Contact details">
