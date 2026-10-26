@@ -60,12 +60,14 @@ export default function CyMonitorShowcasePage() {
 
       {/* Fullscreen Iframe */}
       <div className="relative w-full flex-1 bg-muted/20">
-        <iframe
-          src={cyMonitor.demo}
-          className="absolute inset-0 h-full w-full border-0"
-          title="CYMonitor interactive ESP32 interface"
-          allow="clipboard-write"
-        />
+        <div className="absolute inset-0 mx-auto w-full max-w-[1180px] px-3 py-4">
+          <iframe
+            src={cyMonitor.demo}
+            className="h-full w-full border-0"
+            title="CYMonitor interactive ESP32 interface"
+            allow="clipboard-write"
+          />
+        </div>
       </div>
     </main>
   );
