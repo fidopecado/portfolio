@@ -35,7 +35,7 @@ export default function CyMonitorShowcasePage() {
             <span>↗</span>
           </a>
           <a
-            href={cyMonitor.app}
+            href={cyMonitor.demo}
             target="_blank"
             rel="noreferrer"
             className="transition-colors hover:text-foreground hover:underline"
@@ -61,7 +61,7 @@ export default function CyMonitorShowcasePage() {
       {/* Fullscreen Iframe */}
       <div className="relative w-full flex-1 bg-muted/20">
         <iframe
-          src={cyMonitor.app}
+          src={cyMonitor.demo}
           className="absolute inset-0 h-full w-full border-0"
           title="CYMonitor interactive ESP32 interface"
           allow="clipboard-write"

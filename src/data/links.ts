@@ -25,4 +25,6 @@ export const cyMonitor = {
   repo: "https://github.com/fidopecado/CYMonitor",
   site: "https://fidopecado.github.io/CYMonitor/",
   app: "https://fidopecado.github.io/CYMonitor/app.html",
+  /** `?demo=1` starts the generated-telemetry demo instead of the setup form. */
+  demo: "https://fidopecado.github.io/CYMonitor/app.html?demo=1",
 } as const;
