@@ -1,4 +1,4 @@
-import { MailIcon, PhoneIcon } from "@/components/icons";
+import { MailIcon, MessageCircleIcon } from "@/components/icons";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
 import { contact, certificates, coursework } from "@/data/profile";
@@ -124,8 +124,8 @@ export function Contact() {
                 size="lg"
                 className="border-ink-500 bg-transparent text-background hover:bg-ink-700 hover:text-background"
               >
-                <a href={contact.phoneHref}>
-                  Call me <PhoneIcon className="size-4" />
+                <a href={contact.whatsapp} target="_blank" rel="noreferrer">
+                  WhatsApp <MessageCircleIcon className="size-4" />
                 </a>
               </Button>
             </div>

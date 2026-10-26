@@ -11,6 +11,7 @@ type IconName =
   | "mail"
   | "map-pin"
   | "menu"
+  | "message-circle"
   | "phone"
   | "terminal"
   | "x";
@@ -44,6 +45,7 @@ const paths: Record<IconName, readonly IconNode[]> = {
     ["circle", { cx: 12, cy: 10.5, r: 2.75 }],
   ],
   menu: [["path", { d: "M4 7.5h16" }], ["path", { d: "M4 12h16" }], ["path", { d: "M4 16.5h16" }]],
+  "message-circle": [["path", { d: "M8.2 20.3A9 9 0 1 0 3.7 15.8L2.5 21.5Z" }]],
   phone: [
     [
       "path",
@@ -72,6 +74,10 @@ export const ExternalLinkIcon = createIcon("external-link", definitions["externa
 export const MailIcon = createIcon("mail", definitions.mail);
 export const MapPinIcon = createIcon("map-pin", definitions["map-pin"]);
 export const MenuIcon = createIcon("menu", definitions.menu);
+export const MessageCircleIcon = createIcon(
+  "message-circle",
+  definitions["message-circle"],
+);
 export const PhoneIcon = createIcon("phone", definitions.phone);
 export const TerminalIcon = createIcon("terminal", definitions.terminal);
 export const XIcon = createIcon("x", definitions.x);

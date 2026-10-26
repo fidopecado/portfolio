@@ -10,12 +10,15 @@
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "http://localhost:3000";
 
+import { contact } from "./profile";
+
 /**
  * Profile links. An entry with an empty `href` is never rendered, so a
  * half-configured profile can never ship a dead link.
  */
 export const socialLinks = [
   { label: "GitHub", href: "https://github.com/fidopecado" },
+  { label: "WhatsApp", href: contact.whatsapp },
   // Add your LinkedIn profile URL here and it appears wherever socialLinks is rendered.
   { label: "LinkedIn", href: "" },
 ].filter((link) => link.href.length > 0);

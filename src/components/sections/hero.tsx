@@ -1,4 +1,4 @@
-import { ArrowDownRightIcon, CircleDotIcon, DownloadIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/icons";
+import { ArrowDownRightIcon, CircleDotIcon, DownloadIcon, MailIcon, MapPinIcon, MessageCircleIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { socialLinks } from "@/data/links";
 import { contact } from "@/data/profile";
@@ -75,8 +75,14 @@ export function Hero() {
                 <MailIcon className="mt-0.5 size-4 text-muted-foreground shrink-0" />
                 <span className="break-all">{contact.email}</span>
               </a>
-              <a className="flex items-start gap-3 transition-colors hover:text-foreground hover:underline" href={contact.phoneHref}>
-                <PhoneIcon className="mt-0.5 size-4 text-muted-foreground shrink-0" />
+              <a
+                className="flex items-start gap-3 transition-colors hover:text-foreground hover:underline"
+                href={contact.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Chat on WhatsApp: ${contact.phone}`}
+              >
+                <MessageCircleIcon className="mt-0.5 size-4 text-muted-foreground shrink-0" />
                 <span>{contact.phone}</span>
               </a>
               <p className="flex items-start gap-3">
@@ -88,6 +94,11 @@ export function Hero() {
                 </span>
               </p>
             </address>
+            <Button asChild className="mt-6 w-full">
+              <a href={contact.whatsapp} target="_blank" rel="noreferrer">
+                WhatsApp <MessageCircleIcon />
+              </a>
+            </Button>
             <p className="mt-10 border-t border-border pt-4 font-mono text-[0.68rem] uppercase leading-5 tracking-[0.14em] text-muted-foreground">
               Infrastructure · Engineering · Intelligence
             </p>

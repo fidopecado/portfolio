@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MenuIcon, XIcon } from "@/components/icons";
+import { MenuIcon, MessageCircleIcon, XIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { navigation } from "@/data/sections";
 import { useActiveSection } from "@/hooks/use-active-section";
@@ -50,8 +50,8 @@ export function SiteHeader() {
             </a>
           ))}
           <Button asChild size="sm">
-            <a href={`mailto:${contact.email}`} aria-label="Email me to get in touch">
-              Let&apos;s talk
+            <a href={contact.whatsapp} target="_blank" rel="noreferrer" aria-label="Message me on WhatsApp">
+              Let&apos;s talk <MessageCircleIcon className="size-3.5" />
             </a>
           </Button>
         </nav>
@@ -92,7 +92,9 @@ export function SiteHeader() {
               </a>
             ))}
             <Button asChild className="mt-4 w-full">
-              <a href={`mailto:${contact.email}`}>Let&apos;s talk</a>
+              <a href={contact.whatsapp} target="_blank" rel="noreferrer">
+                Let&apos;s talk on WhatsApp <MessageCircleIcon />
+              </a>
             </Button>
           </div>
         </nav>

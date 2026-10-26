@@ -3,6 +3,9 @@ export const contact = {
   email: "firdausravi33@gmail.com",
   phone: "+62 857 8668 3002",
   phoneHref: "tel:+6285786683002",
+  /** Deep link with a prefilled first message, so the conversation opens scoped. */
+  whatsapp:
+    "https://wa.me/6285786683002?text=Hi%20Firdaus%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20talk.",
   location: {
     city: "Semarang",
     region: "Central Java",
