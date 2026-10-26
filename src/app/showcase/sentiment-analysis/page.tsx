@@ -35,7 +35,7 @@ export default function SentimentAnalysisShowcasePage() {
             <span>↗</span>
           </a>
           <a
-            href="https://github.com/FirdausRavi/Indonesian-Tiktok-Comments-Sentiment-Analysis"
+            href="https://github.com/fidopecado/Indonesian-Tiktok-Comments-Sentiment-Analysis"
             target="_blank"
             rel="noreferrer"
             className="hover:text-foreground underline px-1"

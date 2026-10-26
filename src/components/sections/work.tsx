@@ -5,6 +5,55 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { projects } from "@/data/projects";
 
+const isExternal = (href: string) => /^https?:\/\//.test(href);
+
+/**
+ * Project destinations are a mix of internal routes and absolute URLs
+ * (GitHub, Pages, Streamlit). `next/link` prefetches internal routes only,
+ * so external destinations get a plain anchor with a new-tab target.
+ */
+function ProjectAction({
+  href,
+  label,
+  variant,
+}: {
+  href: string;
+  label: string;
+  variant: "primary" | "secondary" | "muted";
+}) {
+  const className =
+    variant === "primary"
+      ? "inline-flex items-center gap-1.5 rounded bg-foreground px-3 py-1.5 font-mono text-xs font-medium text-background transition-opacity hover:opacity-90"
+      : variant === "secondary"
+        ? "inline-flex items-center gap-1.5 rounded border border-border bg-background px-3 py-1.5 font-mono text-xs font-medium text-foreground transition-colors hover:bg-muted"
+        : "inline-flex items-center gap-1.5 rounded border border-border bg-background px-3 py-1.5 font-mono text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground";
+
+  const content = (
+    <>
+      <span>{label}</span>
+      {isExternal(href) ? (
+        <span className="text-[10px]">↗</span>
+      ) : (
+        <ChevronRightIcon className="size-3" />
+      )}
+    </>
+  );
+
+  if (isExternal(href)) {
+    return (
+      <a href={href} target="_blank" rel="noreferrer" className={className}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {content}
+    </Link>
+  );
+}
+
 export function Work() {
   return (
     <section
@@ -80,33 +129,21 @@ export function Work() {
                 {(project.liveUrl || project.caseStudyUrl || project.githubUrl) && (
                   <div className="flex flex-wrap gap-3 pt-2">
                     {project.liveUrl && (
-                      <Link
+                      <ProjectAction
                         href={project.liveUrl}
-                        className="inline-flex items-center gap-1.5 rounded bg-foreground px-3 py-1.5 font-mono text-xs font-medium text-background transition-opacity hover:opacity-90"
-                      >
-                        <span>View Interactive Demo</span>
-                        <ChevronRightIcon className="size-3" />
-                      </Link>
+                        label={isExternal(project.liveUrl) ? "Open Live Demo" : "View Interactive Demo"}
+                        variant="primary"
+                      />
                     )}
                     {project.caseStudyUrl && (
-                      <Link
+                      <ProjectAction
                         href={project.caseStudyUrl}
-                        className="inline-flex items-center gap-1.5 rounded border border-border bg-background px-3 py-1.5 font-mono text-xs font-medium text-foreground transition-colors hover:bg-muted"
-                      >
-                        <span>Read Case Study</span>
-                        <ChevronRightIcon className="size-3" />
-                      </Link>
+                        label="Read Case Study"
+                        variant="secondary"
+                      />
                     )}
                     {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded border border-border bg-background px-3 py-1.5 font-mono text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                      >
-                        <span>View Repository</span>
-                        <span className="text-[10px]">↗</span>
-                      </a>
+                      <ProjectAction href={project.githubUrl} label="View Repository" variant="muted" />
                     )}
                   </div>
                 )}

@@ -1,3 +1,5 @@
+import { cyMonitor } from "@/data/links";
+
 export interface Project {
   number: string;
   year: string;
@@ -15,6 +17,26 @@ export interface Project {
 export const projects: Project[] = [
   {
     number: "01",
+    year: "2026",
+    title: "CYMonitor — ESP32 Desk Telemetry Display",
+    type: "Embedded Firmware + Web Application",
+    description:
+      "A touch-first ESP32 desk display that polls LibreHardwareMonitor over the local network and renders CPU, GPU and RAM telemetry on a 480 × 320 TFT, with a dependency-free browser recreation of the same interface.",
+    details: [
+      "Wrote 3,100 lines of C++ against a hard heap budget: a pre-parse JSON filter and a 12-level nesting cap keep a ~120 KB sensor tree off the ESP32 heap",
+      "Pinned polling to a 12 KB task on core 0 so network stalls degrade to a labelled stale-data state instead of blocking the UI",
+      "Implemented six saved Wi-Fi profiles, an 18-palette RGB565 theme engine persisted in NVS, an NTP clock, a Pomodoro timer and three animation modes",
+      "Rebuilt the entire interface as a build-step-free web app that can read the same endpoint live, sharing the firmware's palettes",
+      "Packaged it as an Nginx container with a same-origin proxy for the sensor endpoint, removing CORS and mixed-content failures",
+    ],
+    stack: ["C++", "ESP32", "Arduino", "PlatformIO", "TFT_eSPI", "JavaScript", "Docker", "Nginx"],
+    featured: true,
+    liveUrl: "/showcase/cymonitor",
+    caseStudyUrl: "/projects/cymonitor",
+    githubUrl: cyMonitor.repo,
+  },
+  {
+    number: "02",
     year: "2025",
     title: "Full-Stack MERN E-Commerce Platform",
     type: "Full-Stack Web Application",
@@ -31,7 +53,7 @@ export const projects: Project[] = [
     liveUrl: "/showcase/ecommerce",
   },
   {
-    number: "02",
+    number: "03",
     year: "2025",
     title: "Promotional Gambling Comment Classification",
     type: "LLM-Based NLP System",
@@ -47,7 +69,7 @@ export const projects: Project[] = [
     caseStudyUrl: "/projects/gambling-classification",
   },
   {
-    number: "03",
+    number: "04",
     year: "2026",
     title: "Indonesian Social Media Comment Sentiment Analysis",
     type: "Applied NLP & Streamlit Dashboard",
@@ -61,10 +83,10 @@ export const projects: Project[] = [
     stack: ["Python", "HuggingFace", "Transformers", "Streamlit", "NLP"],
     featured: false,
     liveUrl: "/showcase/sentiment-analysis",
-    githubUrl: "https://github.com/FirdausRavi/Indonesian-Tiktok-Comments-Sentiment-Analysis",
+    githubUrl: "https://github.com/fidopecado/Indonesian-Tiktok-Comments-Sentiment-Analysis",
   },
   {
-    number: "04",
+    number: "05",
     year: "2025 — 2026",
     title: "Batik Motif Classification using CNN Xception Architecture",
     type: "Computer Vision Research",
@@ -79,7 +101,7 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    number: "05",
+    number: "06",
     year: "2024",
     title: "GITLEGIT Mochi Business Company Profile",
     type: "Commercial Web Application",
@@ -94,7 +116,7 @@ export const projects: Project[] = [
     liveUrl: "/showcase/legit/",
   },
   {
-    number: "06",
+    number: "07",
     year: "2023",
     title: "Academic Information & Student Progress System",
     type: "Academic Platform",
@@ -108,4 +130,3 @@ export const projects: Project[] = [
     featured: false,
   },
 ];
-
