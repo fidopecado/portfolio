@@ -82,7 +82,7 @@ export default function GamblingClassificationCaseStudy() {
                   Promosi judi online di kolom komentar YouTube Indonesia berkembang pesat dengan memanfaatkan variasi ejaan, gaul, leksikon terselubung (obfuscation), dan kombinasi angka-huruf.
                 </p>
                 <p>
-                  Filter kata kunci tradisional (string matching) sering gagal menangkap manipulasi kata seperti <em>"sgi88"</em>, <em>"weton88"</em>, <em>"sketer"</em>, atau <em>"maxwin"</em>.
+                  Filter kata kunci tradisional (string matching) sering gagal menangkap manipulasi kata seperti <em>&quot;sgi88&quot;</em>, <em>&quot;weton88&quot;</em>, <em>&quot;sketer&quot;</em>, atau <em>&quot;maxwin&quot;</em>.
                 </p>
               </CardContent>
             </Card>
