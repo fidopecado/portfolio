@@ -1,6 +1,7 @@
 node_modules
 .next
 .git
+.github
 .gitignore
 Dockerfile
 .dockerignore
@@ -8,3 +9,5 @@ npm-debug.log*
 README.md
 implementation_plan.md
 task.md
+tsconfig.tsbuildinfo
+.env*
