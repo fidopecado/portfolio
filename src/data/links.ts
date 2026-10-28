@@ -19,8 +19,10 @@ import { contact } from "./profile";
 export const socialLinks = [
   { label: "GitHub", href: "https://github.com/fidopecado" },
   { label: "WhatsApp", href: contact.whatsapp },
-  // Add your LinkedIn profile URL here and it appears wherever socialLinks is rendered.
-  { label: "LinkedIn", href: "" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/firdaus-ravi-faizzani-999781228/",
+  },
 ].filter((link) => link.href.length > 0);
 
 /** CYMonitor: firmware repo and the GitHub Pages build of `web/`. */
