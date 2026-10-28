@@ -31,3 +31,16 @@ export const cyMonitor = {
   /** `?demo=1` starts the generated-telemetry demo instead of the setup form. */
   demo: "https://fidopecado.github.io/CYMonitor/app.html?demo=1",
 } as const;
+
+/**
+ * r/indonesia analytics dashboard, hosted on Streamlit Community Cloud.
+ *
+ * `?embed=true` puts the app in iframe mode: Streamlit Cloud otherwise serves
+ * its own chrome around the app and refuses to be framed.
+ */
+export const rIndonesia = {
+  repo: "https://github.com/fidopecado/Indonesian-Subreddit-Analytics",
+  app: "https://fidopecado-indonesian-subreddit-analytics-app-jsnenm.streamlit.app/",
+  embed:
+    "https://fidopecado-indonesian-subreddit-analytics-app-jsnenm.streamlit.app/?embed=true",
+} as const;

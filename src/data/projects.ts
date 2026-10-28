@@ -1,4 +1,4 @@
-import { cyMonitor } from "@/data/links";
+import { cyMonitor, rIndonesia } from "@/data/links";
 
 export interface Project {
   number: string;
@@ -128,5 +128,24 @@ export const projects: Project[] = [
     ],
     stack: ["React.js", "Node.js", "PHP", "SQL"],
     featured: false,
+  },
+  {
+    number: "08",
+    year: "2026",
+    title: "r/indonesia Analytics — 728K-Comment Dashboard",
+    type: "Data Product + Applied NLP",
+    description:
+      "A hosted Streamlit dashboard over every r/indonesia thread and comment in a ten-month scrape, with model-generated sentiment labels, an LLM-labelled reference sample, and a prevalence correction that stops the raw model output from being read as ground truth.",
+    details: [
+      "Rebuilt the load path so the whole dashboard runs in 712 MB of RSS — Arrow-backed text, on-demand comment bodies and pre-binned charts replaced a 1.42 GB working set that exceeded Streamlit Cloud's 1 GB ceiling",
+      "Shipped 8 live views (overview, threads, comments, authors, flairs, timing, sentiment, methodology) where every filter re-aggregates 728,522 comments and the URL carries the whole view state for sharing",
+      "Benchmarked a transformer classifier against 10K LLM-labelled comments: κ = 0.19 and neutral-class F1 = 0.33, so the app ships a least-squares prevalence correction alongside the raw distribution instead of presenting it as truth",
+      "Made the data caveats first-class UI: stale Reddit comment counters, duplicate ids, static aggregates and the ~7% of comments the model never saw are all labelled on the page",
+    ],
+    stack: ["Python", "Streamlit", "pandas", "PyArrow", "Plotly", "HuggingFace", "LLM Labelling"],
+    featured: true,
+    liveUrl: "/showcase/indonesian-subreddit",
+    caseStudyUrl: "/projects/indonesian-subreddit",
+    githubUrl: rIndonesia.repo,
   },
 ];
