@@ -56,6 +56,15 @@ docker build --build-arg NEXT_PUBLIC_SITE_URL=https://your-domain.example -t por
 
 Hosted targets work the same way — set `NEXT_PUBLIC_SITE_URL` in the project's environment settings before the first build. The app uses no platform-specific APIs, so Vercel is a drop-in target; Cloudflare Pages needs an adapter for the Next runtime and is a later migration.
 
+## Analytics
+
+Vercel Web Analytics is mounted once in [`src/app/layout.tsx`](src/app/layout.tsx) via `@vercel/analytics/next`, so every page view is tracked automatically.
+
+1. Deploy to Vercel.
+2. In the Vercel dashboard, open the project and enable **Analytics**.
+
+It only records when the site is served by Vercel: the browser loads `/_vercel/insights/script.js`, an endpoint Vercel provides. Self-hosted builds, including the Docker image, don't send data and that request returns 404. To collect from a self-hosted deployment, pass the project's `dsn` to `<Analytics dsn="..." />`.
+
 ## Validation
 
 ```bash
